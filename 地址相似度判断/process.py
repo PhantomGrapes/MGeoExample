@@ -7,7 +7,7 @@ from modelscope.utils.constant import Tasks
 def get_sim(inputs):
     task = Tasks.sentence_similarity
     model = "damo/mgeo_geographic_entity_alignment_chinese_base"
-    pipeline_ins = pipeline(task=task, model=model)
+    pipeline_ins = pipeline(task=task, model=model, model_revision='v1.1.2')
 
     res = pipeline_ins(input=inputs)
     sim_label = res["labels"][np.argmax(res["scores"])]
